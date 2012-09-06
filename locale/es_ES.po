@@ -1,0 +1,75 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:party.event:"
+msgid "Not subject"
+msgstr "Sin asumpto"
+
+msgctxt "field:party.event,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:party.event,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:party.event,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:party.event,event_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:party.event,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:party.event,party:"
+msgid "Party"
+msgstr "Tercero"
+
+msgctxt "field:party.event,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:party.event,resource:"
+msgid "Resource"
+msgstr "Recurso"
+
+msgctxt "field:party.event,subject:"
+msgid "Subject"
+msgstr "Asumpto"
+
+msgctxt "field:party.event,user:"
+msgid "User"
+msgstr "Usuario"
+
+msgctxt "field:party.event,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:party.event,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:party.party,events:"
+msgid "Events"
+msgstr "Eventos"
+
+msgctxt "model:party.event,name:"
+msgid "Party Event"
+msgstr "Historial tercero"
+
+msgctxt "view:party.event:"
+msgid "Event"
+msgstr "Evento"
+
+msgctxt "view:party.event:"
+msgid "Events"
+msgstr "Eventos"
+
+msgctxt "view:party.party:"
+msgid "Events"
+msgstr "Eventos"
