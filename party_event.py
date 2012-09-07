@@ -25,7 +25,7 @@ class PartyEvent(ModelSQL, ModelView):
         super(PartyEvent, self).__init__()
         self._order.insert(0, ('event_date', 'DESC'))
         self._error_messages.update({
-            'not_subject': 'Not subject',
+            'no_subject': 'No subject',
         })
 
     def get_resource(self):
@@ -41,22 +41,6 @@ class PartyEvent(ModelSQL, ModelView):
             res[mail.id] = mail.subject
         return res
 
-    def get_message(self, message):
-        """
-        Get message translated by language user
-        :param message: srt
-        :return: str
-        """
-        translation_obj = Pool().get('ir.translation')
-        message = self._error_messages.get(message, message)
-        language = Transaction().language
-        res = translation_obj.get_source(self._name, 'error', language, message)
-        if not res:
-            res = translation_obj.get_source(message, 'error', language)
-        if res:
-            message = res
-        return message
-
     def create_event(self, party, resource, values={}):
         """
         Create event at party from details
@@ -68,7 +52,8 @@ class PartyEvent(ModelSQL, ModelView):
 
         values = {
             'event_date':values.get('date') or now,
-            'subject':values.get('subject') or self.get_message('Not subject'),
+            'subject':values.get('subject') or 
+                self.raise_user_error('no_subject',raise_exception=False),
             'description':values.get('description',''),
             'party':party,
             'resource':resource,
