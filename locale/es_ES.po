@@ -3,7 +3,7 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:party.event:"
-msgid "Not subject"
+msgid "No subject"
 msgstr "Sin asumpto"
 
 msgctxt "field:party.event,create_date:"
