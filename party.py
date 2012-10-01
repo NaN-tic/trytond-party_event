@@ -7,6 +7,6 @@ from trytond.model import Model, fields
 class Party(Model):
     _name = 'party.party'
 
-    events = fields.One2Many('party.event', 'party', 'Events', readonly=True)
+    events = fields.One2Many('party.event', 'party', 'Events')
 
 Party()

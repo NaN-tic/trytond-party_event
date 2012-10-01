@@ -9,6 +9,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
           <field name="arch" type="xml">
             <![CDATA[
             <tree string="Events">
+                <field name="type"/>
                 <field name="event_date"/>
                 <field name="subject"/>
                 <field name="resource"/>
@@ -23,6 +24,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
           <field name="arch" type="xml">
             <![CDATA[
             <form string="Event" col="6">
+                <label name="type"/>
+                <field name="type"/>
                 <label name="event_date"/>
                 <field name="event_date"/>
                 <label name="subject"/>

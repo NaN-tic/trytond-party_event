@@ -8,12 +8,25 @@ from trytond.transaction import Transaction
 
 import datetime
 
+_TYPES = [
+    ('phone', 'Phone'),
+    ('mobile', 'Mobile'),
+    ('fax', 'Fax'),
+    ('email', 'E-Mail'),
+    ('skype', 'Skype'),
+    ('irc', 'IRC'),
+    ('jabber', 'Jabber'),
+    ('other', 'Other'),
+]
+
 class PartyEvent(ModelSQL, ModelView):
     'Party Event'
     _name = 'party.event'
     _description = __doc__
     _order_name = 'date'
 
+    type = fields.Selection(_TYPES, 'Type', required=True, states=STATES,
+        sort=False)
     event_date = fields.DateTime('Date', required=True, readonly=True)
     subject = fields.Char('Subject', required=True, readonly=True)
     description = fields.Text('Description', readonly=True)
@@ -27,6 +40,9 @@ class PartyEvent(ModelSQL, ModelView):
         self._error_messages.update({
             'no_subject': 'No subject',
         })
+
+    def default_type(self):
+        return 'email'
 
     def get_resource(self):
         '''Get Resources. Rewrite this method to add new resource references'''
