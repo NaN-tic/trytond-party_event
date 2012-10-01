@@ -42,6 +42,10 @@ msgctxt "field:party.event,subject:"
 msgid "Subject"
 msgstr "Asumpto"
 
+msgctxt "field:party.event,type:"
+msgid "Type"
+msgstr "Tipo"
+
 msgctxt "field:party.event,user:"
 msgid "User"
 msgstr "Usuario"
@@ -61,6 +65,38 @@ msgstr "Eventos"
 msgctxt "model:party.event,name:"
 msgid "Party Event"
 msgstr "Historial tercero"
+
+msgctxt "selection:party.event,type:"
+msgid "E-Mail"
+msgstr "Correo electrónico"
+
+msgctxt "selection:party.event,type:"
+msgid "Fax"
+msgstr "Fax"
+
+msgctxt "selection:party.event,type:"
+msgid "IRC"
+msgstr "IRC"
+
+msgctxt "selection:party.event,type:"
+msgid "Jabber"
+msgstr "Jabber"
+
+msgctxt "selection:party.event,type:"
+msgid "Mobile"
+msgstr "Móvil"
+
+msgctxt "selection:party.event,type:"
+msgid "Other"
+msgstr "Otro"
+
+msgctxt "selection:party.event,type:"
+msgid "Phone"
+msgstr "Teléfono"
+
+msgctxt "selection:party.event,type:"
+msgid "Skype"
+msgstr "Skype"
 
 msgctxt "view:party.event:"
 msgid "Event"
