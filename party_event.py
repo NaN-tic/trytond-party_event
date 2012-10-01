@@ -25,14 +25,13 @@ class PartyEvent(ModelSQL, ModelView):
     _description = __doc__
     _order_name = 'date'
 
-    type = fields.Selection(_TYPES, 'Type', required=True, states=STATES,
-        sort=False)
-    event_date = fields.DateTime('Date', required=True, readonly=True)
-    subject = fields.Char('Subject', required=True, readonly=True)
-    description = fields.Text('Description', readonly=True)
-    party = fields.Many2One('party.party', 'Party', required=True, readonly=True)
-    resource = fields.Reference('Resource', selection='get_resource', readonly=True)
-    user = fields.Many2One('res.user', 'User', required=True, readonly=True)
+    type = fields.Selection(_TYPES, 'Type', required=True, sort=False)
+    event_date = fields.DateTime('Date', required=True)
+    subject = fields.Char('Subject', required=True)
+    description = fields.Text('Description')
+    party = fields.Many2One('party.party', 'Party', required=True)
+    resource = fields.Reference('Resource', selection='get_resource')
+    user = fields.Many2One('res.user', 'User', required=True)
 
     def __init__(self):
         super(PartyEvent, self).__init__()
