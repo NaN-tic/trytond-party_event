@@ -43,6 +43,12 @@ class PartyEvent(ModelSQL, ModelView):
     def default_type(self):
         return 'email'
 
+    def default_event_date(self):
+        return datetime.datetime.now()
+
+    def default_user(self):
+        return Transaction().user
+
     def get_resource(self):
         '''Get Resources. Rewrite this method to add new resource references'''
         res = []
