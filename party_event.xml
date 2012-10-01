@@ -23,17 +23,17 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
           <field name="type">form</field>
           <field name="arch" type="xml">
             <![CDATA[
-            <form string="Event" col="6">
+            <form string="Event" col="4">
+                <label name="subject"/>
+                <field name="subject"/>
                 <label name="type"/>
                 <field name="type"/>
                 <label name="event_date"/>
                 <field name="event_date"/>
-                <label name="subject"/>
-                <field name="subject"/>
-                <label name="resource"/>
-                <field name="resource"/>
                 <label name="user"/>
                 <field name="user"/>
+                <label name="resource"/>
+                <field name="resource"/>
                 <newline/>
                 <separator name="description" colspan="6"/>
                 <field name="description" colspan="6"/>
