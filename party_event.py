@@ -8,6 +8,8 @@ from trytond.transaction import Transaction
 
 import datetime
 
+__all__ = ['PartyEvent']
+
 _TYPES = [
     ('phone', 'Phone'),
     ('mobile', 'Mobile'),
@@ -21,8 +23,7 @@ _TYPES = [
 
 class PartyEvent(ModelSQL, ModelView):
     'Party Event'
-    _name = 'party.event'
-    _description = __doc__
+    __name__ = 'party.event'
     _order_name = 'date'
 
     type = fields.Selection(_TYPES, 'Type', required=True, sort=False)
@@ -33,32 +34,38 @@ class PartyEvent(ModelSQL, ModelView):
     resource = fields.Reference('Resource', selection='get_resource')
     user = fields.Many2One('res.user', 'User', required=True)
 
-    def __init__(self):
-        super(PartyEvent, self).__init__()
-        self._order.insert(0, ('event_date', 'DESC'))
-        self._error_messages.update({
+    @classmethod
+    def __setup__(cls):
+        super(PartyEvent, cls).__setup__()
+        cls._order.insert(0, ('event_date', 'DESC'))
+        cls._error_messages.update({
             'no_subject': 'No subject',
         })
 
-    def default_type(self):
+    @staticmethod
+    def default_type():
         return 'email'
 
-    def default_event_date(self):
+    @staticmethod
+    def default_event_date():
         return datetime.datetime.now()
 
-    def default_user(self):
+    @staticmethod
+    def default_user():
         return Transaction().user
 
-    def get_resource(self):
+    @classmethod
+    def get_resource(cls):
         '''Get Resources. Rewrite this method to add new resource references'''
         res = []
         return res
 
-    def get_rec_name(self, ids, name):
-        if not ids:
+    @classmethod
+    def get_rec_name(cls, records, name):
+        if not records:
             return {}
         res = {}
-        for mail in self.browse(ids):
+        for mail in records:
             res[mail.id] = mail.subject
         return res
 
@@ -85,5 +92,3 @@ class PartyEvent(ModelSQL, ModelView):
         except:
             pass
         return True
-
-PartyEvent()

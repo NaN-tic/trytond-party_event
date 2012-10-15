@@ -2,11 +2,14 @@
 #The COPYRIGHT file at the top level of this repository contains 
 #the full copyright notices and license terms.
 
-from trytond.model import Model, fields
+from trytond.model import fields
+from trytond.pool import PoolMeta
 
-class Party(Model):
-    _name = 'party.party'
+__all__ = ['Party']
+__metaclass__ = PoolMeta
+
+class Party:
+    __name__ = 'party.party'
 
     events = fields.One2Many('party.event', 'party', 'Events')
 
-Party()
