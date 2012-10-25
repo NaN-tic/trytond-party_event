@@ -56,19 +56,13 @@ class PartyEvent(ModelSQL, ModelView):
 
     @classmethod
     def get_resource(cls):
-        '''Get Resources. Rewrite this method to add new resource references'''
-        res = []
-        return res
+        'Return list of Model names for resource Reference'
+        return []
+
+    def get_rec_name(self, name):
+        return (self.subject or unicode(self.id))
 
     @classmethod
-    def get_rec_name(cls, records, name):
-        if not records:
-            return {}
-        res = {}
-        for mail in records:
-            res[mail.id] = mail.subject
-        return res
-
     def create_event(self, party, resource, values={}):
         """
         Create event at party from details
@@ -77,7 +71,6 @@ class PartyEvent(ModelSQL, ModelView):
         :param values: Dicc {subject:, date:, description:} (optional)
         """
         now = datetime.datetime.now()
-
         values = {
             'event_date':values.get('date') or now,
             'subject':values.get('subject') or 
