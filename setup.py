@@ -27,20 +27,20 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
         (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_party_event',
+setup(name='trytonzz_party_event',
     version=info.get('version', '0.0.1'),
     description='Tryton module to add Party Events',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
     download_url="https://bitbucket.org/zikzakmedia/trytond-party_event",
-    package_dir={'trytond.modules.party_event': '.'},
+    package_dir={'trytonzz.modules.party_event': '.'},
     packages=[
-        'trytond.modules.party_event',
-        'trytond.modules.party_event.tests',
+        'trytonzz.modules.party_event',
+        'trytonzz.modules.party_event.tests',
     ],
     package_data={
-        'trytond.modules.party_event': info.get('xml', []) \
+        'trytonzz.modules.party_event': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -63,9 +63,9 @@ setup(name='trytond_party_event',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytond.modules]
-    party_event = trytond.modules.party_event
+    [trytonzz.modules]
+    party_event = trytonzz.modules.party_event
     """,
     test_suite='tests',
-    test_loader='trytond.test_loader:Loader',
+    test_loader='trytonzz.test_loader:Loader',
 )
