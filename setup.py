@@ -33,7 +33,7 @@ setup(name='trytonzz_party_event',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytond-party_event",
+    download_url="https://bitbucket.org/zikzakmedia/trytonzz-party_event",
     package_dir={'trytonzz.modules.party_event': '.'},
     packages=[
         'trytonzz.modules.party_event',
