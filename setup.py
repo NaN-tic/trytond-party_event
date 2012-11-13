@@ -33,14 +33,14 @@ setup(name='trytonzz_party_event',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytonzz-party_event",
-    package_dir={'trytonzz.modules.party_event': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytond-party_event",
+    package_dir={'trytond.modules.party_event': '.'},
     packages=[
-        'trytonzz.modules.party_event',
-        'trytonzz.modules.party_event.tests',
+        'trytond.modules.party_event',
+        'trytond.modules.party_event.tests',
     ],
     package_data={
-        'trytonzz.modules.party_event': info.get('xml', []) \
+        'trytond.modules.party_event': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -63,9 +63,9 @@ setup(name='trytonzz_party_event',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytonzz.modules]
-    party_event = trytonzz.modules.party_event
+    [trytond.modules]
+    party_event = trytond.modules.party_event
     """,
     test_suite='tests',
-    test_loader='trytonzz.test_loader:Loader',
+    test_loader='trytond.test_loader:Loader',
 )
