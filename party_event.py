@@ -81,7 +81,7 @@ class PartyEvent(ModelSQL, ModelView):
             'user':Transaction().user,
         }
         try:
-            self.create(values)
+            self.create([values])
         except:
             pass
         return True
