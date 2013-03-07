@@ -7,8 +7,8 @@ pestaña **Eventos** a la ficha de terceros donde quedan anotadas todas las
 comunicaciones con el mismo (correos electrónicos, CRM, llamadas teléfonicas,
 etc.)
 
-Módulos que dependen
-====================
+Módulos de los que depende
+==========================
 
 Instalados
 ----------
