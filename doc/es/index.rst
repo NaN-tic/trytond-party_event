@@ -6,10 +6,3 @@ Este es un módulo genérico para que otros módulos hagan uso de él. Añade un
 pestaña Eventos a la ficha de terceros donde quedan anotadas todas las
 comunicaciones con el mismo (correos electrónicos, CRM, llamadas teléfonicas,
 etc.)
-
-Dependencias
-------------
-
-* Terceros_
-
-.. _Terceros: ../party/index.html
