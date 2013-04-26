@@ -3,7 +3,6 @@
 #the full copyright notices and license terms.
 
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.pool import Pool
 from trytond.transaction import Transaction
 
 import datetime
