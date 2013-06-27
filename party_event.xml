@@ -13,7 +13,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                 <field name="event_date"/>
                 <field name="subject"/>
                 <field name="resource"/>
-                <field name="user"/>
+                <field name="employee"/>
             </tree>
             ]]>
           </field>
@@ -30,8 +30,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                 <field name="type"/>
                 <label name="event_date"/>
                 <field name="event_date"/>
-                <label name="user"/>
-                <field name="user"/>
+                <label name="employee"/>
+                <field name="employee"/>
                 <label name="resource"/>
                 <field name="resource"/>
                 <newline/>

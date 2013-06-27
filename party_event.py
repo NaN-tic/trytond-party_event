@@ -1,10 +1,11 @@
 #This file is part party_event module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains 
+#The COPYRIGHT file at the top level of this repository contains
 #the full copyright notices and license terms.
 
+from trytond.backend import TableHandler
 from trytond.model import ModelView, ModelSQL, fields
+from trytond.pool import Pool
 from trytond.transaction import Transaction
-
 import datetime
 
 __all__ = ['PartyEvent']
@@ -20,6 +21,7 @@ _TYPES = [
     ('other', 'Other'),
 ]
 
+
 class PartyEvent(ModelSQL, ModelView):
     'Party Event'
     __name__ = 'party.event'
@@ -31,7 +33,7 @@ class PartyEvent(ModelSQL, ModelView):
     description = fields.Text('Description')
     party = fields.Many2One('party.party', 'Party', required=True)
     resource = fields.Reference('Resource', selection='get_resource')
-    user = fields.Many2One('res.user', 'User', required=True)
+    employee = fields.Many2One('company.employee', 'Employee', required=True)
 
     @classmethod
     def __setup__(cls):
@@ -40,6 +42,28 @@ class PartyEvent(ModelSQL, ModelView):
         cls._error_messages.update({
             'no_subject': 'No subject',
         })
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(PartyEvent, cls).__register__(module_name)
+        User = Pool().get('res.user')
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Migration from 2.8: user to employee
+        if table.column_exist('user'):
+            cursor.execute('''
+                UPDATE
+                    "%s"
+                SET
+                    employee = "%s".employee
+                FROM
+                    "%s"
+                WHERE
+                    "%s".id = "%s".user
+                ''' %
+                (cls._table, User._table, User._table, User._table,
+                    cls._table))
+            table.column_rename('user', 'user_deprecated')
 
     @staticmethod
     def default_type():
@@ -50,8 +74,14 @@ class PartyEvent(ModelSQL, ModelView):
         return datetime.datetime.now()
 
     @staticmethod
-    def default_user():
-        return Transaction().user
+    def default_employee():
+        User = Pool().get('res.user')
+        if Transaction().context.get('employee'):
+            return Transaction().context['employee']
+        else:
+            user = User(Transaction().user)
+            if user.employee:
+                return user.employee.id
 
     @classmethod
     def get_resource(cls):

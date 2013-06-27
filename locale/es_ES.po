@@ -4,7 +4,7 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:party.event:"
 msgid "No subject"
-msgstr "Sin asumpto"
+msgstr "Sin asunto"
 
 msgctxt "field:party.event,create_date:"
 msgid "Create Date"
@@ -17,6 +17,10 @@ msgstr "Usuario creación"
 msgctxt "field:party.event,description:"
 msgid "Description"
 msgstr "Descripción"
+
+msgctxt "field:party.event,employee:"
+msgid "Employee"
+msgstr "Empleado"
 
 msgctxt "field:party.event,event_date:"
 msgid "Date"
@@ -40,15 +44,11 @@ msgstr "Recurso"
 
 msgctxt "field:party.event,subject:"
 msgid "Subject"
-msgstr "Asumpto"
+msgstr "Asunto"
 
 msgctxt "field:party.event,type:"
 msgid "Type"
 msgstr "Tipo"
-
-msgctxt "field:party.event,user:"
-msgid "User"
-msgstr "Usuario"
 
 msgctxt "field:party.event,write_date:"
 msgid "Write Date"
