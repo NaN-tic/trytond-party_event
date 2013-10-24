@@ -2,7 +2,7 @@
 #The COPYRIGHT file at the top level of this repository contains
 #the full copyright notices and license terms.
 
-from trytond.backend import TableHandler
+from trytond import backend
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from trytond.transaction import Transaction
@@ -48,6 +48,7 @@ class PartyEvent(ModelSQL, ModelView):
         super(PartyEvent, cls).__register__(module_name)
         User = Pool().get('res.user')
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Migration from 2.8: user to employee
         if table.column_exist('user'):
