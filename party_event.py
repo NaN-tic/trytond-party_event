@@ -33,7 +33,7 @@ class PartyEvent(ModelSQL, ModelView):
     description = fields.Text('Description')
     party = fields.Many2One('party.party', 'Party', required=True)
     resource = fields.Reference('Resource', selection='get_resource')
-    employee = fields.Many2One('company.employee', 'Employee', required=True)
+    employee = fields.Many2One('company.employee', 'Employee')
 
     @classmethod
     def __setup__(cls):
@@ -100,15 +100,19 @@ class PartyEvent(ModelSQL, ModelView):
         :param resource: str (object,id) Eg: 'electrinic.mail,1'
         :param values: Dicc {subject:, date:, description:} (optional)
         """
+        User = Pool().get('res.user')
+
         now = datetime.datetime.now()
+        user = User(Transaction().user)
+
         values = {
-            'event_date':values.get('date') or now,
-            'subject':values.get('subject') or 
+            'event_date': values.get('date') or now,
+            'subject': values.get('subject') or 
                 self.raise_user_error('no_subject',raise_exception=False),
-            'description':values.get('description',''),
-            'party':party,
-            'resource':resource,
-            'user':Transaction().user,
+            'description': values.get('description',''),
+            'party': party,
+            'resource': resource,
+            'employee': user.employee or None,
         }
         try:
             self.create([values])
