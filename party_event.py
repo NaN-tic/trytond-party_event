@@ -101,21 +101,18 @@ class PartyEvent(ModelSQL, ModelView):
         :param values: Dicc {subject:, date:, description:} (optional)
         """
         User = Pool().get('res.user')
+        Party = Pool().get('party.party')
+        PartyEvent = Pool().get('party.event')
 
         now = datetime.datetime.now()
         user = User(Transaction().user)
 
-        values = {
-            'event_date': values.get('date') or now,
-            'subject': values.get('subject') or 
-                self.raise_user_error('no_subject',raise_exception=False),
-            'description': values.get('description',''),
-            'party': party,
-            'resource': resource,
-            'employee': user.employee or None,
-        }
-        try:
-            self.create([values])
-        except:
-            pass
-        return True
+        party_event = PartyEvent()
+        party_event.event_date = values.get('date') or now
+        party_event.subject = values.get('subject') or \
+                self.raise_user_error('no_subject',raise_exception=False)
+        party_event.description = values.get('description','')
+        party_event.party = Party(party)
+        party_event.resource = resource
+        party_event.employee = user.employee or None
+        party_event.save()
