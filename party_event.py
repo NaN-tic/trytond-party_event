@@ -87,7 +87,7 @@ class PartyEvent(ModelSQL, ModelView):
     @classmethod
     def get_resource(cls):
         'Return list of Model names for resource Reference'
-        return []
+        return [[None, '']]
 
     def get_rec_name(self, name):
         return (self.subject or unicode(self.id))
