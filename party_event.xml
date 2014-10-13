@@ -1,45 +1,33 @@
 <?xml version="1.0"?>
 <!-- This file is part party_event module for Tryton.
-The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
 <tryton>
     <data>
         <record model="ir.ui.view" id="party_event_view_tree">
-          <field name="model">party.event</field>
-          <field name="type">tree</field>
-          <field name="arch" type="xml">
-            <![CDATA[
-            <tree string="Events">
-                <field name="type"/>
-                <field name="event_date"/>
-                <field name="subject"/>
-                <field name="resource"/>
-                <field name="employee"/>
-            </tree>
-            ]]>
-          </field>
+            <field name="model">party.event</field>
+            <field name="type">tree</field>
+            <field name="name">party_event_tree</field>
         </record>
         <record model="ir.ui.view" id="party_event_view_form">
-          <field name="model">party.event</field>
-          <field name="type">form</field>
-          <field name="arch" type="xml">
-            <![CDATA[
-            <form string="Event" col="4">
-                <label name="subject"/>
-                <field name="subject"/>
-                <label name="type"/>
-                <field name="type"/>
-                <label name="event_date"/>
-                <field name="event_date"/>
-                <label name="employee"/>
-                <field name="employee"/>
-                <label name="resource"/>
-                <field name="resource"/>
-                <newline/>
-                <separator name="description" colspan="6"/>
-                <field name="description" colspan="6"/>
-            </form>
-            ]]>
-          </field>
+            <field name="model">party.event</field>
+            <field name="type">form</field>
+            <field name="name">party_event_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_party_event_view">
+            <field name="name">Party Events</field>
+            <field name="res_model">party.event</field>
+            <field name="domain">[('party', 'in', Eval('active_ids'))]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_party_event_view_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="party_event_view_tree"/>
+            <field name="act_window" ref="act_party_event_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_party_event_view_form">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="party_event_view_form"/>
+            <field name="act_window" ref="act_party_event_view"/>
         </record>
         <record model="ir.model.access" id="access_party_event">
             <field name="model" search="[('model', '=', 'party.event')]"/>

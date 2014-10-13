@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- This file is part of party_event module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<form string="Party Event" col="4">
+    <label name="type"/>
+    <field name="type"/>
+    <label name="event_date"/>
+    <field name="event_date"/>
+    <label name="subject"/>
+    <field name="subject"/>
+    <label name="subject"/>
+    <field name="subject"/>
+    <label name="description"/>
+    <field name="description"/>
+    <label name="party"/>
+    <field name="party"/>
+    <label name="resource"/>
+    <field name="resource"/>
+    <label name="employee"/>
+    <field name="employee"/>
+</form>
