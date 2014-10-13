@@ -62,6 +62,10 @@ msgctxt "field:party.party,events:"
 msgid "Events"
 msgstr "Eventos"
 
+msgctxt "model:ir.action,name:act_party_event_view"
+msgid "Party Events"
+msgstr "Eventos de tercero"
+
 msgctxt "model:party.event,name:"
 msgid "Party Event"
 msgstr "Historial tercero"
