@@ -63,8 +63,8 @@ msgid "Events"
 msgstr "Esdeveniments"
 
 msgctxt "model:ir.action,name:act_party_event_view"
-msgid "Party Events"
-msgstr "Esdeveniments de tercers"
+msgid "Events"
+msgstr "Esdeveniments"
 
 msgctxt "model:party.event,name:"
 msgid "Party Event"
