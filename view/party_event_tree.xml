@@ -5,7 +5,8 @@ copyright notices and license terms. -->
 <tree string="Party Events">
     <field name="subject"/>
     <field name="type"/>
-    <field name="event_date"/>
+    <field name="event_date" widget="date"/>
+    <field name="event_date" widget="time" string="Time"/>
     <field name="party"/>
     <field name="resource"/>
     <field name="employee"/>
