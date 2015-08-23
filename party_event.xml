@@ -17,7 +17,9 @@ copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_party_event_view">
             <field name="name">Events</field>
             <field name="res_model">party.event</field>
-            <field name="domain">[('party', 'in', Eval('active_ids'))]</field>
+            <field name="domain"
+                eval="[('party', 'in', Eval('active_ids'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_party_event_view_tree">
             <field name="sequence" eval="10"/>
