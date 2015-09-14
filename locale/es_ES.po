@@ -103,12 +103,16 @@ msgid "Skype"
 msgstr "Skype"
 
 msgctxt "view:party.event:"
-msgid "Event"
-msgstr "Evento"
+msgid "Party Event"
+msgstr "Historial tercero"
 
 msgctxt "view:party.event:"
-msgid "Events"
-msgstr "Eventos"
+msgid "Party Events"
+msgstr "Eventos del tercero"
+
+msgctxt "view:party.event:"
+msgid "Time"
+msgstr "Hora"
 
 msgctxt "view:party.party:"
 msgid "Events"
